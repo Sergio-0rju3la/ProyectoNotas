@@ -1,0 +1,24 @@
+body{
+    background-color: #cffafe;
+}
+form{
+    background-color: #155e75;
+    width: 500px;
+    height: 500px;
+    margin: 50px;
+    border-radius: 0.25rem;
+    padding: 10px;
+    box-shadow: 0 25px 25px rgb(0 0 0 / 0.15);
+}
+.campo{
+    border: none;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 0.25rem;
+}
+.boton{
+    width: 100px;
+    bottom: 2px;
+    margin: 5px;
+    border-radius: 0.25rem;
+}
