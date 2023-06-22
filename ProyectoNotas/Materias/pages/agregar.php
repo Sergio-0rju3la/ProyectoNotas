@@ -14,7 +14,7 @@
         <div class="im"><img src="../../img/libro-abierto.png"></div>
         <div class="texto"><h1>Agregar Materia</h1></div>
         <label>Nombre de la Materia</label>
-        <input type="text" class="campo" placeholder="Ingresar Nombre">
+        <input type="text" name="txtMateria" class="campo" placeholder="Ingresar Nombre">
         <input type="submit" class="boton btn btn-outline-warning"value="Ingresar">
     </form>
 </div>
