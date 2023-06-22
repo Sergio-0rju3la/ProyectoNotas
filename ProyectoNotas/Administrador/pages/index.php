@@ -13,7 +13,7 @@
     <nav class="d col-12 conteiner-fluid"> 
         <div class="col-6">
             <img src="../../img/libro-abierto.png" alt="">
-            <a href="" class="z">Usuarios</a>
+            <a href="agregar.php" class="z">Usuarios</a>
             <a href="../../Materias/pages/agregar.php" class="z">Materias</a>
             <a href="../../Estudiantes/pages/agregar.php" class="z">Estudiantes</a>
             <a href="../../Docentes/pages/agregar.php" class="z">Docentes</a>

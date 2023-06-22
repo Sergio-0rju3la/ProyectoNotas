@@ -20,7 +20,7 @@
         <label>Usuario</label>
         <input type="text" class="campo" placeholder="Ingresar usuario" name="txtUsuario">
         <label>Contraseña</label>
-        <input type="text" class="campo" placeholder="Ingresar usuario" name="txtContra">
+        <input type="password" class="campo" placeholder="Ingresar usuario" name="txtContra">
         
         <label for="Perfil">Perfil</label>
         <select id="Perfil" class="campo"name="txtPerfil">

@@ -5,23 +5,23 @@ class Administrador extends conexion{
         $this->db=parent::__construct();
     }
     //funcion para registrar usuarios
-    public function addadmi ($Nombre,$Apellido,$Usuario,$Passwor,$Perfil,$Estado);
+    public function addadmi ($Nombre,$Apellido,$Usuario,$Passwor,$Perfil,$Estado)
     {
         //crear la sentencia sql
-        $statement=$this->db->prepare("insert into Usuarios(Nombre,Apellido,Usuario,Passwor,Perfil,
+        $statement=$this->db->prepare("insert into Usuarios (Nombre,Apellido,Usuario,Passwor,Perfil,
         Estado)VALUES(:Nombre,:Apellido,:Usuario,:Passwor,:Perfil,:Estado)");
         $statement->bindParam(':Nombre',$Nombre);
         $statement->bindParam(':Apellido',$Apellido);
         $statement->bindParam(':Usuario',$Usuario);
-        $statement->bindParam(':Paswor',$Passwor);
+        $statement->bindParam(':Passwor',$Passwor);
         $statement->bindParam(':Perfil',$Perfil);
         $statement->bindParam(':Estado',$Estado);
         if($statement->execute()){
             echo"usuario registrado";
-            header(location:'../pages/index.php')
+            header('Location: ../pages/index.php');
         }else{
             echo"usuario no registrado";
-            header(location:'../pages/agregar.php')
+            header('Location: ../pages/agregar.php');
         }
     }
 //funcion para consultar usuarios
@@ -32,7 +32,7 @@ public function getadmin(){
     while($result->statement->fetch()){
         $row[]=$result;
     }
-    result $row;
+   return $row;
 }
 //funcion para listar por id especifico
 public function getidad($ID){
@@ -41,7 +41,7 @@ public function getidad($ID){
     $statement->bindParam(':ID',$ID);
     $statement->execute();
     while($result->$statement->fetch()){
-        $row[]=$result
+        $row[]=$result;
     }
 }
     //funcion actualizar los datos del usuario
@@ -69,7 +69,7 @@ public function getidad($ID){
     //funcion eliminar usuario
     public function deletead($ID){
        
-        $statement=$this->db->prepare("DELETE FROM usuarios WHERE id_usuarios=:ID"):
+        $statement=$this->db->prepare("DELETE FROM usuarios WHERE id_usuarios=:ID");
         $statement->bindParam(':ID',$ID);
         if($statement->execute()){
             echo "usuario eliminado";

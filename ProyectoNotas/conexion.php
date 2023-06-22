@@ -11,8 +11,9 @@ class conexion{
         try{
             $db=new PDO("{$this->drive}:host={$this->host};dbname={$this->dbname}",$this->user,$this->password);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $db;
+            
             echo "conexion realizada";
+            return $db;
             
         }catch(PDOException $e){
             echo "Ha surgido un error: Detalle " . $e->getMessage();

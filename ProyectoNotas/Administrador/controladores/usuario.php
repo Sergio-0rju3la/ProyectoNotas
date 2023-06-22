@@ -4,18 +4,18 @@ include_once('../modelos/administrador.php');
 
 //crear el objeto;
 
-$admin = new Administrador();
+$admin2 = new Administrador();
 
 //definir argumentos;
 
 $Nombre = $_POST['txtNombre'];
 $Apellido = $_POST['txtApellido'];
 $Usuario = $_POST['txtUsuario'];
-$Paswor = $_POST['txtContra'];
+$Passwor = MD5($_POST['txtContra']);
 $Perfil = $_POST['txtPerfil'];
-$Estado = $_POST['txtEStado'];
+$Estado = $_POST['txtEstado'];
 
-$admin->addadmi($Nombre,$Apellido,$Usuario,$Paswor,$Estado,$Perfil);
+$admin2->addadmi($Nombre,$Apellido,$Usuario,$Passwor,$Perfil,$Estado);
 
 
 
