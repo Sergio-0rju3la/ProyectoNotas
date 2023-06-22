@@ -1,6 +1,6 @@
 <?php
 class conexion{
-    protected $db;
+    public $db;
     private $drive="mysql";
     private $host="localhost";
     private $dbname="proyectonotas";
@@ -11,8 +11,8 @@ class conexion{
         try{
             $db=new PDO("{$this->drive}:host={$this->host};dbname={$this->dbname}",$this->user,$this->password);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "conexion realizada";
             return $db;
+            echo "conexion realizada";
             
         }catch(PDOException $e){
             echo "Ha surgido un error: Detalle " . $e->getMessage();
