@@ -14,13 +14,27 @@
         <div class="im"><img src="../../img/libro-abierto.png"></div>
         <div class="texto"><h1>Agregar Docente</h1></div>
         <label>Nombre</label>
-        <input type="text" class="campo" placeholder="Ingresar Nombre">
+        <input type="text" class="campo" name="txtNombreDoc" placeholder="Ingresar Nombre">
         <label>Apellido</label>
-        <input type="text" class="campo" placeholder="Ingresar Apellido">
-        <label>Usuario</label>
-        <input type="text" class="campo" placeholder="Ingresar usuario">
-        <label>Contraseña</label>
-        <input type="text" class="campo" placeholder="Ingresar Contraseña">
+        <input type="text" class="campo" name="txtApellidoDoc" placeholder="Ingresar Apellido">
+        <label>Documento</label>
+        <input type="text" class="campo" name="txtDocumentoDoc" placeholder="Ingresar Documento">
+        <label>Correo</label>
+        <input type="text" class="campo" name="txtCorreoDoc" placeholder="Ingresar Correo">
+        <label>Materia</label>
+        <input type="text" class="campo" name="txtMateriaDoc" placeholder="Ingresar Materia">
+
+        <label for="Perfil">Perfil</label>
+        <select id="Perfil" class="campo"name="txtPerfilDoc">
+        <option value="Administrador">Administrador</option>
+        <option value="Docente">Docente</option>
+        </select>
+
+        <label for="Estado">Estado</label>
+        <select id="Estado" class="campo"name="txtEstadoDoc">
+        <option value="Activo">Activo</option>
+        <option value="No Activo">No Activo</option>
+        </select>
         <input type="submit" class="boton btn btn-outline-primary"value="Ingresar">
     </form>
 </div>
