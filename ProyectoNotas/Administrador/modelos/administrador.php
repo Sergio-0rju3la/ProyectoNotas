@@ -9,7 +9,7 @@ class Administrador extends conexion{
     {
         //crear la sentencia sql
         $statement=$this->db->prepare("insert into Usuarios(Nombre,Apellido,Usuario,Passwor,Perfil,
-        Estado)VALUES(:Nombre,:Apellido,:Usuario,:Passwor,'Administrador',:'Activo')");
+        Estado)VALUES(:Nombre,:Apellido,:Usuario,:Passwor,:Perfil,:Estado)");
         $statement->bindParam(':Nombre',$Nombre);
         $statement->bindParam(':Apellido',$Apellido);
         $statement->bindParam(':Usuario',$Usuario);

@@ -14,14 +14,17 @@
         <div class="im"><img src="../../img/libro-abierto.png"></div>
         <div class="texto"><h1>Agregar Usuario</h1></div>
         <label>Nombre</label>
-        <input type="text" class="campo" placeholder="Ingresar Nombre">
+        <input type="text" class="campo" placeholder="Ingresar Nombre" name="txtnombre">
         <label>Apellido</label>
-        <input type="text" class="campo" placeholder="Ingresar Apellido">
+        <input type="text" class="campo" placeholder="Ingresar Apellido" name="">
         <label>Usuario</label>
         <input type="text" class="campo" placeholder="Ingresar usuario">
         <label>Contraseña</label>
         <input type="text" class="campo" placeholder="Ingresar Contraseña">
         <input type="submit" class="boton btn btn-outline-danger"value="Ingresar">
+
+
+
     </form>
 </div>
 </body>
