@@ -10,21 +10,31 @@
 <body>
     <div class="caja d-flex flex-column align-items-center justify-content-center">
         
-    <form class="d-flex flex-column align-items-center justify-content-center">
+    <form action="../controladores/usuario.php" method="POST" class="d-flex flex-column align-items-center justify-content-center">
         <div class="im"><img src="../../img/libro-abierto.png"></div>
         <div class="texto"><h1>Agregar Usuario</h1></div>
         <label>Nombre</label>
-        <input type="text" class="campo" placeholder="Ingresar Nombre" name="txtnombre">
+        <input type="text" class="campo" placeholder="Ingresar Nombre" name="txtNombre">
         <label>Apellido</label>
-        <input type="text" class="campo" placeholder="Ingresar Apellido" name="">
+        <input type="text" class="campo" placeholder="Ingresar Apellido" name="txtApellido">
         <label>Usuario</label>
-        <input type="text" class="campo" placeholder="Ingresar usuario">
+        <input type="text" class="campo" placeholder="Ingresar usuario" name="txtUsuario">
         <label>Contraseña</label>
-        <input type="text" class="campo" placeholder="Ingresar Contraseña">
+        <input type="text" class="campo" placeholder="Ingresar usuario" name="txtContra">
+        
+        <label for="Perfil">Perfil</label>
+        <select id="Perfil" class="campo"name="txtPerfil">
+        <option value="Administrador">Administrador</option>
+        <option value="Docente">Docente</option>
+        </select>
+
+        <label for="Estado">Estado</label>
+        <select id="Estado" class="campo"name="txtEstado">
+        <option value="Activo">Activo</option>
+        <option value="No Activo">No Activo</option>
+        </select>
+        
         <input type="submit" class="boton btn btn-outline-danger"value="Ingresar">
-
-
-
     </form>
 </div>
 </body>
