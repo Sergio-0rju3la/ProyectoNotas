@@ -12,11 +12,11 @@ $NombreDoc = $_POST['txtNombreDoc'];
 $ApellidoDoc = $_POST['txtApellidoDoc'];
 $DocumentoDoc = $_POST['txtDocumentoDoc'];
 $CorreoDoc = $_POST['txtCorreoDoc'];
-$MateriaDoc = $_POST['txtMateriaDoc']
+$MateriaDoc = $_POST['txtMateriaDoc'];
 $PerfilDoc = $_POST['txtPerfilDoc'];
 $EstadoDoc = $_POST['txtEstadoDoc'];
 
-$docen->addDoce($NombreDoc,$ApellidoDoc,$DocumentoDoc,$CorreoDoc,$MateriaDoc,$Perfil,$Estado);
+$docen->addDoce($NombreDoc,$ApellidoDoc,$DocumentoDoc,$CorreoDoc,$MateriaDoc,$PerfilDoc,$EstadoDoc);
 
 
 

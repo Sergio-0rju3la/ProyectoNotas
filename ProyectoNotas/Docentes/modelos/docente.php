@@ -7,7 +7,7 @@ class Docente extends conexion{
 
 
     //funcion para registrar usuarios
-    public function addDoce ($NombreDoc,$ApellidoDoc,$DocumentoDoc,$CorreoDoc,$MateriaDoc,$Perfil,$Estado)
+    public function addDoce ($NombreDoc,$ApellidoDoc,$DocumentoDoc,$CorreoDoc,$MateriaDoc,$PerfilDoc,$EstadoDoc)
     {   
 
         //crear la sentencia sql
@@ -18,12 +18,12 @@ class Docente extends conexion{
         $statement->bindParam(':DocumentoDoc',$DocumentoDoc);
         $statement->bindParam(':CorreoDoc',$CorreoDoc);
         $statement->bindParam(':MateriaDoc',$MateriaDoc);
-        $statement->bindParam(':PerfilDoc',$Perfil);
-        $statement->bindParam(':EstadoDoc',$Estado);
+        $statement->bindParam(':PerfilDoc',$PerfilDoc);
+        $statement->bindParam(':EstadoDoc',$EstadoDoc);
         
         if($statement->execute()){
             echo"usuario registrado";
-            header('Location: ../pages/index.php');
+            header('Location: ../../Administrador/pages/index.php');
         }else{
             echo"usuario no registrado";
             header('Location: ../pages/agregar.php');
@@ -50,21 +50,24 @@ public function getidad($IDdoc){
     }
 }
     //funcion actualizar los datos del usuario
-    public function updatead($ID,$NombreDoc,$ApellidoDoc,$DocumentoDoc,$CorreoDoc,$MateriaDoc,$PerfilDoc,$EstadoDoc)
+    public function updatead($IDdoc,$NombreDoc,$ApellidoDoc,$DocumentoDoc,$CorreoDoc,$MateriaDoc,$PerfilDoc,$EstadoDoc)
     {
         $statement=$this->bd->prepare("UPDATE docente SET NombreDoc=:NombreDoc,
-        Apellido=:Apellido,
-        Usuario=:Usuario,
-        Passwor=:Passwor,
-        Estado=:Estado WHERE id_usuario=$ID");
+        ApellidoDoc=:ApellidoDoc,
+        DocementoDoc=:DocumentoDoc,
+        CorreoDoc=:CorreoDoc,
+        MateriaDoc=MateriaDoc,
+        PerfilDoc=PerfilDoc
+        ,
+        EstadoDoc=:EstadoDoc WHERE id_docente=$IDdoc");
         $statement->bindParam(':IDdoc',$IDdoc);
-        $statement->bindParam(':NombreDoc',$Nombre);
-        $statement->bindParam(':ApellidoDoc',$Apellido);
+        $statement->bindParam(':NombreDoc',$NombreDoc);
+        $statement->bindParam(':ApellidoDoc',$ApellidoDoc);
         $statement->bindParam(':DocumentoDoc',$DocumentoDoc);
         $statement->bindParam(':CorreoDoc',$CorreoDoc);
         $statement->bindParam(':MateriaDoc',$MateriaDoc);
-        $statement->bindParam(':PerfilDoc',$Perfil);
-        $statement->bindParam(':EstadoDoc',$Estado);
+        $statement->bindParam(':PerfilDoc',$PerfilDoc);
+        $statement->bindParam(':EstadoDoc',$EstadoDoc);
         
         if($statement->execute())
         {
@@ -81,7 +84,7 @@ public function getidad($IDdoc){
         $statement->bindParam(':IDdoc',$IDdoc);
         if($statement->execute()){
             echo "usuario eliminado";
-            header('location: ..pages/index.php');
+            header('location: ../../Administrador/pages/index.php');
 
         }else{
             echo "error no se puede eliminar";

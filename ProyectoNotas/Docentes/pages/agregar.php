@@ -10,7 +10,7 @@
 <body>
     <div class="caja d-flex flex-column align-items-center justify-content-center">
         
-    <form class="d-flex flex-column align-items-center justify-content-center">
+    <form action="../controladores/controlDocentes.php" method="POST" class="d-flex flex-column align-items-center justify-content-center">
         <div class="im"><img src="../../img/libro-abierto.png"></div>
         <div class="texto"><h1>Agregar Docente</h1></div>
         <label>Nombre</label>
