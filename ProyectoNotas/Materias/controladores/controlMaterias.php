@@ -1,6 +1,6 @@
 <?php
 include_once('../../conexion.php');
-include_once('../modelos/materia.php');
+include_once('../modelos/materias.php');
 
 //crear el objeto;
 
@@ -11,7 +11,7 @@ $mate = new Materia();
 $Materia = $_POST['txtMateria'];
 
 
-$mate->addDoce($Materia);
+$mate->addMate($Materia);
 
 
 

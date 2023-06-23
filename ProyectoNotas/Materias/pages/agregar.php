@@ -10,7 +10,7 @@
 <body>
     <div class="caja d-flex flex-column align-items-center justify-content-center">
         
-    <form class="d-flex flex-column align-items-center justify-content-center">
+    <form action="../controladores/controlMaterias.php" method="POST" class="d-flex flex-column align-items-center justify-content-center">
         <div class="im"><img src="../../img/libro-abierto.png"></div>
         <div class="texto"><h1>Agregar Materia</h1></div>
         <label>Nombre de la Materia</label>
