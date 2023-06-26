@@ -27,7 +27,7 @@ class Administrador extends conexion{
 //funcion para consultar usuarios
 public function getadmin(){
     $resultset=[];
-    $sql = "SELECT * FROM usuarios WHERE Perfil='Administrador'";
+    $sql = "SELECT * FROM usuarios WHERE Perfil='Administrador' OR Perfil='Docente'";
     $result = $this->db->query($sql);
     if($result->rowCount()>0){
          while($row=$result->fetch()){
@@ -39,13 +39,12 @@ public function getadmin(){
 }
 //funcion para listar por id especifico
 public function getidad($ID){
-    $row=null;
-    $statement=$this->db->prepare("SELECT * from Usuarios where id_usuario=:ID and Perfil='Administrador'");
+    
+    $statement=$this->db->prepare("SELECT * from Usuarios where id_usuario=:ID");
     $statement->bindParam(':ID',$ID);
     $statement->execute();
-    while($result->$statement->fetch()){
-        $row[]=$result;
-    }
+    $result=$statement->fetch(PDO::FETCH_ASSOC);
+    return $result;
 }
     //funcion actualizar los datos del usuario
     public function updatead($ID,$Nombre,$Apellido,$Usuario,$Passwor,$Estado)
