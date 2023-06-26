@@ -67,7 +67,7 @@
             <td><?php 
             echo $key['Estado']?></td>
             <td><a href="editar.php?Id=<?php 
-            echo $key['id_usuario']?>" class="btn btn-danger">ACTUALIZAR</a></td>
+            echo $key['id_usuario']?>" class="btn btn-danger">Actualizar</a></td>
             <td><a href="eliminar.php?=<?php 
             echo $key['id_usuario']?>" class="btn btn-primary">Eliminar</a></td>
             

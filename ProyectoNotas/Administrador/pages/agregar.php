@@ -6,8 +6,23 @@
     <title>Agregar Docente</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="../../css/agregarAdmin.css" rel="stylesheet">
+    <link href="../../css/iniadmin.css" rel="stylesheet">
 </head>
 <body>
+<nav class="d col-12 conteiner-fluid"> 
+        <div class="col-6">
+            <a href="index.php"><img src="../../img/libro-abierto.png" alt=""></a>
+            <a href="agregar.php" class="z">Usuarios</a>
+            <a href="../../Materias/pages/agregar.php" class="z">Materias</a>
+            <a href="../../Estudiantes/pages/agregar.php" class="z">Estudiantes</a>
+            <a href="../../Docentes/pages/agregar.php" class="z">Docentes</a>
+
+        </div>
+        <div class=" col-6">
+        <input type="button" value="cerrar sesión" class="s btn btn-outline-danger">
+        </div>
+
+    </nav>
     <div class="caja d-flex flex-column align-items-center justify-content-center">
         
     <form action="../controladores/usuario.php" method="POST" class="d-flex flex-column align-items-center justify-content-center">
@@ -20,7 +35,7 @@
         <label>Usuario</label>
         <input type="text" class="campo" placeholder="Ingresar usuario" name="txtUsuario">
         <label>Contraseña</label>
-        <input type="password" class="campo" placeholder="Ingresar usuario" name="txtContra">
+        <input type="password" class="campo" placeholder="Ingresar contraseña" name="txtContra">
         
         <label for="Perfil">Perfil</label>
         <select id="Perfil" class="campo"name="txtPerfil">
