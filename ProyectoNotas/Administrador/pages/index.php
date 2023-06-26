@@ -24,7 +24,52 @@
         </div>
 
     </nav>
+    <br>
+    <h1>LIsta de usuarios</h1>
+    <div class="container">
 
+    <div col-auto-mt-5>
+    <table class="table table-dark table-hover">
+        <tr>
+            <th>ID USUASRIOS</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Usuario</th>
+            <th>PErfil</th>
+            <th>EStado</th>
+            <th>ACTUALIZAR</th>
+            <th>ELIMINAR</th>
+        </tr>
+    <tbody>
+        <?php
+        require_once('../../conexion.php');
+        require_once('../modelos/administrador.php');
+        $obj =new Administrador();
+        $datos = $obj-> getadmin();
+
+        foreach($datos as $key){
+
+        
+
+        
+        ?>
+        <tr>
+            <td><?php echo $key['id_usuario']?></td>
+            <td><?php echo $key['Nombre']?></td>
+            <td><?php echo $key['Apellido']?></td>
+            <td><?php echo $key['Usuario']?></td>
+            <td><?php echo $key['Perfil']?></td>
+            <td><?php echo $key['Estado']?></td>
+            <td><a href="editar.php?Id=<?php echo $key['id_usuario']?>" class="btn btn-danger">ACTUALIZAR</a></td>
+            <td><a href="eliminar.php?=<?php echo $key['id_usuario']?>" class="btn btn-primary">Eliminar</a></td>
+        </tr>
+        <?php } ?>
+    </tbody>
+    </table>
+
+    </div>
+    
+    </div>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
