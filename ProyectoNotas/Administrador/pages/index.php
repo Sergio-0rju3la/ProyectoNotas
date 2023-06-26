@@ -45,7 +45,7 @@
         require_once('../../conexion.php');
         require_once('../modelos/administrador.php');
         $obj =new Administrador();
-        $datos = $obj-> getadmin();
+        $datos = $obj->getadmin();
 
         foreach($datos as $key){
 
@@ -54,17 +54,27 @@
         
         ?>
         <tr>
-            <td><?php echo $key['id_usuario']?></td>
-            <td><?php echo $key['Nombre']?></td>
-            <td><?php echo $key['Apellido']?></td>
-            <td><?php echo $key['Usuario']?></td>
-            <td><?php echo $key['Perfil']?></td>
-            <td><?php echo $key['Estado']?></td>
-            <td><a href="editar.php?Id=<?php echo $key['id_usuario']?>" class="btn btn-danger">ACTUALIZAR</a></td>
-            <td><a href="eliminar.php?=<?php echo $key['id_usuario']?>" class="btn btn-primary">Eliminar</a></td>
+            <td><?php 
+            echo $key['id_usuario']?></td>
+            <td><?php 
+            echo $key['Nombre']?></td>
+            <td><?php 
+            echo $key['Apellido']?></td>
+            <td><?php 
+            echo $key['Usuario']?></td>
+            <td><?php 
+            echo $key['Perfil']?></td>
+            <td><?php 
+            echo $key['Estado']?></td>
+            <td><a href="editar.php?Id=<?php 
+            echo $key['id_usuario']?>" class="btn btn-danger">ACTUALIZAR</a></td>
+            <td><a href="eliminar.php?=<?php 
+            echo $key['id_usuario']?>" class="btn btn-primary">Eliminar</a></td>
+            
         </tr>
         <?php } ?>
     </tbody>
+    
     </table>
 
     </div>

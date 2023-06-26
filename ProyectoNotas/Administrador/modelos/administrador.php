@@ -26,13 +26,16 @@ class Administrador extends conexion{
     }
 //funcion para consultar usuarios
 public function getadmin(){
-    $row=null;
-    $statement=$this->db->prepare("SELECT* from Usuarios where Perfil=Administrador");
-    $statement->execute();
-    while($result->statement->fetch()){
-        $row[]=$result;
+    $resultset=[];
+    $sql = "SELECT * FROM usuarios WHERE Perfil='Administrador'";
+    $result = $this->db->query($sql);
+    if($result->rowCount()>0){
+         while($row=$result->fetch()){
+        $resultset[]=$row;
     }
-   return $row;
+  
+    }
+    return $resultset;
 }
 //funcion para listar por id especifico
 public function getidad($ID){
@@ -47,7 +50,7 @@ public function getidad($ID){
     //funcion actualizar los datos del usuario
     public function updatead($ID,$Nombre,$Apellido,$Usuario,$Passwor,$Estado)
     {
-        $statement=$this->bd->prepare("UPDATE usuarios SET Nombre=:Nombre,
+        $statement=$this->db->prepare("UPDATE usuarios SET Nombre=:Nombre,
         Apellido=:Apellido,
         Usuario=:Usuario,
         Passwor=:Passwor,
