@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../css/iniadmin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
-<body>
+<body class="adminbody">
     <nav class="d col-12 conteiner-fluid"> 
         <div class="col-6">
             <img src="../../img/libro-abierto.png" alt="">
@@ -25,7 +25,7 @@
 
     </nav>
     <br>
-    <h1>LIsta de usuarios</h1>
+    <h1 class="titu">LIsta de usuarios</h1>
     <div class="container">
 
     <div col-auto-mt-5>
@@ -68,7 +68,7 @@
             echo $key['Estado']?></td>
             <td><a href="editar.php?Id=<?php 
             echo $key['id_usuario']?>" class="btn btn-danger">Actualizar</a></td>
-            <td><a href="eliminar.php?=<?php 
+            <td><a href="eliminar.php?Id=<?php 
             echo $key['id_usuario']?>" class="btn btn-primary">Eliminar</a></td>
             
         </tr>
