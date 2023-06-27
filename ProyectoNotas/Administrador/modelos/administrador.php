@@ -47,25 +47,28 @@ public function getidad($ID){
     return $result;
 }
     //funcion actualizar los datos del usuario
-    public function updatead($ID,$Nombre,$Apellido,$Usuario,$Passwor,$Estado)
+    public function updatead($ID,$Nombre,$Apellido,$Usuario,$Passwor,$Perfil,$Estado)
     {
         $statement=$this->db->prepare("UPDATE usuarios SET Nombre=:Nombre,
         Apellido=:Apellido,
         Usuario=:Usuario,
         Passwor=:Passwor,
-        Estado=:Estado WHERE id_usuario=$ID");
-        $statement->bindParam(':ID',$ID);
+        Perfil=:Perfil,
+        Estado=:Estado WHERE id_usuario=:id");
+        $statement->bindParam(':id',$ID);
         $statement->bindParam(':Nombre',$Nombre);
         $statement->bindParam(':Apellido',$Apellido);
         $statement->bindParam(':Usuario',$Usuario);
         $statement->bindParam(':Passwor',$Passwor);
+        $statement->bindParam(':Perfil',$Perfil);
         $statement->bindParam(':Estado',$Estado);
         if($statement->execute())
         {
-            header('location: ../pages/index.php');
+            header('Location: ../pages/index.php');
+            
         }else{
             echo "el usuario no";
-            header('location: ../pages/editar.php');
+            header('Location: ../pages/editar.php');
         }
     }
     //funcion eliminar usuario
@@ -76,7 +79,7 @@ public function getidad($ID){
         if($statement->execute()){
             echo "usuario eliminado";
             header('location: ..pages/index.php');
-
+            
         }else{
             echo "error no se puede eliminar";
             header ('location: ../pages/eliminar.php');

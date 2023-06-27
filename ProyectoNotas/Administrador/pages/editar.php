@@ -35,8 +35,8 @@
         if($row){
 
         ?>
-    <form action="../controladores/usuario.php" method="POST" class="d-flex flex-column align-items-center justify-content-center">
-        <input type="hidden" name="ID" value="<?php echo[$ID]?>">
+    <form action="../controladores/actualizar.php" method="POST" class="d-flex flex-column align-items-center justify-content-center">
+        <input type="hidden" name="ID" value="<?php echo $row['id_usuario']?>">
         <div class="im"><img src="../../img/libro-abierto.png"></div>
         <div class="texto"><h1>Editar Usuario</h1></div>
         <label>Nombre</label>
