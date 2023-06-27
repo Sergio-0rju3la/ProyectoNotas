@@ -8,6 +8,9 @@ body{
     display: grid;
     justify-items: center;
 }
+.adminbody{
+    background-color: #020617;
+}
 .d{
     padding: 20px;
     display: flex;
@@ -25,4 +28,7 @@ body{
 }
 .s{
     float: right;
+}
+.titu{
+    color: white;
 }
