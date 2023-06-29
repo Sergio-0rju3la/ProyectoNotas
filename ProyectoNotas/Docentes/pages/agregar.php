@@ -9,7 +9,13 @@
 </head>
 <body>
     <div class="caja d-flex flex-column align-items-center justify-content-center">
-        
+    <?php
+        require_once('../../conexion.php');
+        require_once('../../metodos.php');
+
+        $me= new consulta();
+        $do= new consulta();
+        ?>
     <form action="../controladores/controlDocentes.php" method="POST" class="d-flex flex-column align-items-center justify-content-center">
         <div class="im"><img src="../../img/libro-abierto.png"></div>
         <div class="texto"><h1>Agregar Docente</h1></div>
@@ -21,8 +27,20 @@
         <input type="text" class="campo" name="txtDocumentoDoc" placeholder="Ingresar Documento">
         <label>Correo</label>
         <input type="text" class="campo" name="txtCorreoDoc" placeholder="Ingresar Correo">
-        <label>Materia</label>
-        <input type="text" class="campo" name="txtMateriaDoc" placeholder="Ingresar Materia">
+        <label>Materias</label>
+        <select name="txtMateriaDoc" class="campo">
+            <option>Seleccionar</option>
+            <?php
+        $mate= $me->getmaterias();
+        if($mate!=null){
+            foreach($mate as $ma){
+                ?>
+                <option value="<?php echo$ma['Materia']; ?>"> <?php echo$ma['Materia'];?></option>
+                <?php
+            }
+        }
+        ?>
+        </select>
 
         
 

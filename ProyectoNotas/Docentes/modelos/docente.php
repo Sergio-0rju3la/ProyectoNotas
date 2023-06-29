@@ -44,13 +44,11 @@ public function getadmin(){
 }
 //funcion para listar por id especifico
 public function getidad($IDdoc){
-    $row=null;
-    $statement=$this->db->prepare("SELECT * from docente where id_docente=:ID and PerfilDoc='docente'");
-    $statement->bindParam(':IDdoc',$IDdoc);
+    $statement=$this->db->prepare("SELECT * from docente where id_docente=:ID");
+    $statement->bindParam(':ID',$IDdoc);
     $statement->execute();
-    while($result->$statement->fetch()){
-        $row[]=$result;
-    }
+    $result=$statement->fetch(PDO::FETCH_ASSOC);
+    return $result;
 }
     //funcion actualizar los datos del usuario
     public function updatead($IDdoc,$NombreDoc,$ApellidoDoc,$DocumentoDoc,$CorreoDoc,$MateriaDoc,$PerfilDoc,$EstadoDoc)
