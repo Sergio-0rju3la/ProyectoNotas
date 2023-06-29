@@ -9,7 +9,13 @@
 </head>
 <body>
     <div class="caja d-flex flex-column align-items-center justify-content-center">
-        
+        <?php
+        require_once('../../conexion.php');
+        require_once('../../metodos.php');
+
+        $me= new consulta();
+        $do= new consulta();
+        ?>
     <form class="d-flex flex-column align-items-center justify-content-center">
         <div class="im"><img src="../../img/libro-abierto.png"></div>
         <div class="texto"><h1>Agregar Estudiante</h1></div>
@@ -17,11 +23,46 @@
         <input type="text" class="campo" placeholder="Ingresar Nombre">
         <label>Apellido</label>
         <input type="text" class="campo" placeholder="Ingresar Apellido">
-        <label>Usuario</label>
-        <input type="text" class="campo" placeholder="Ingresar usuario">
-        <label>Contraseña</label>
-        <input type="text" class="campo" placeholder="Ingresar Contraseña">
+        <label>Documento</label>
+        <input type="text" class="campo" placeholder="Ingresar Documento">
+        <label>Correo</label>
+        <input type="text" class="campo" placeholder="Ingresar Correo">
+        <label>Materia</label>
+        <select name="txtmateria" class="">
+            <option>Seleccionar</option>
+            <?php
+        $mate= $me->getmaterias();
+        if($mate!==null){
+            foreach($mate as $ma){
+                ?>
+                <option value="<?php echo$ma['Materia']; ?>"> <?php echo$ma['Materia'];?></option>
+                <?php
+            }
+        }
+        ?>
+        </select>
+        <label>Docente</label>
+        <select name="txtdocente" class="">
+            <option>Seleccionar</option>
+            <?php
+        $doce1= $do->getdocente();
+        if($doce1!==null){
+            foreach($doce1 as $dc){
+                ?>
+                <option value="<?php echo$dc['NombreDoc']; ?>"> <?php echo$dc['NombreDoc'];?></option>
+                <?php
+            }
+        }
+        ?>
+        </select>
+        
+        <label>Nota final</label>
+        <input type="number" class="campo" placeholder="Promedio">
+        <label>Fecha de registro</label>
+        <input type="datetime-local" class="campo" placeholder="Fecha">
         <input type="submit" class="boton btn btn-outline-success"value="Ingresar">
+        
+    
     </form>
 </div>
 </body>

@@ -35,8 +35,8 @@
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Usuario</th>
-            <th>PErfil</th>
-            <th>EStado</th>
+            <th>Perfil</th>
+            <th>Estado</th>
             <th>ACTUALIZAR</th>
             <th>ELIMINAR</th>
         </tr>
