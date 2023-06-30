@@ -6,9 +6,10 @@
     <title>Agregar Estudiante</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="../../css/agregarEstud.css" rel="stylesheet">
+
 </head>
 <body>
-    <div class="caja d-flex flex-column align-items-center justify-content-center">
+    <div class="x caja d-flex flex-column align-items-center justify-content-center">
         <?php
         require_once('../../conexion.php');
         require_once('../../metodos.php');
@@ -16,7 +17,7 @@
         $me= new consulta();
         $do= new consulta();
         ?>
-    <form class="d-flex flex-column align-items-center justify-content-center">
+    <form class="s d-flex flex-column align-items-center justify-content-center">
         <div class="im"><img src="../../img/libro-abierto.png"></div>
         <div class="texto"><h1>Agregar Estudiante</h1></div>
         <label>Nombre</label>
@@ -28,7 +29,7 @@
         <label>Correo</label>
         <input type="text" class="campo" placeholder="Ingresar Correo">
         <label>Materia</label>
-        <select name="txtmateria" class="">
+        <select name="txtmateria" class="campo">
             <option>Seleccionar</option>
             <?php
         $mate= $me->getmaterias();
@@ -42,7 +43,7 @@
         ?>
         </select>
         <label>Docente</label>
-        <select name="txtdocente" class="">
+        <select name="txtdocente" class="campo">
             <option>Seleccionar</option>
             <?php
         $doce1= $do->getdocente();
