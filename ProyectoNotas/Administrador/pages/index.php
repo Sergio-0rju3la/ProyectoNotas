@@ -1,4 +1,5 @@
 <?php
+include_once('../../Usuarios/modelos/validar.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,17 +21,18 @@
 
         </div>
         <div class=" col-6">
-        <input type="button" value="cerrar sesión" class="s btn btn-outline-danger">
+        <a href="../../index.php"><input type="button" value="cerrar sesión" class="s btn btn-outline-danger"></a>
         </div>
 
     </nav>
+    <h2>Bienvenido: <?php echo $_SESSION["usuario"]?></h2>
     <!--alerta-->
     <?php
-    session_start();
+    /*session_start();
     if(isset($_SESSION['alerta'])){
         echo $_SESSION['alerta'];
         unset($_SESSION['alerta']);
-    }
+    }*/
     ?>
 <script>
     setTimeout(function(){
