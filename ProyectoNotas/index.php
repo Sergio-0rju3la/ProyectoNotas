@@ -1,7 +1,6 @@
 <?php
 //pagina principal para entrar al sistema
 
-
 ?>
 
 <!DOCTYPE html>
@@ -17,13 +16,12 @@
     <div class="claudio row">
     <div class="f col-4">
             <h2>iniciar secion</h2>
-    <form class="d" action="" >
+    <form action="Usuarios/modelos/controlUsuarios.php" class="d" method="POST" >
             <label for="usuario">usuario</label>
             <input type="text" placeholder="usuario" name="usuario">
-
             <label for="contraseña">Contraseña</label>
-            <input type="text" placeholder="Contraseña" name="contraseña">
-            <input type="button" class="btn btn-outline-danger" value="INICIAR">
+            <input type="text" placeholder="Contraseña" name="contrasena">
+            <input type="submit" class="btn btn-outline-danger" value="INICIAR">
         </form>
         <div class="w">
             <div>
