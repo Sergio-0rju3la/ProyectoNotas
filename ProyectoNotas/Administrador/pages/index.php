@@ -1,5 +1,10 @@
 <?php
-include_once('../../Usuarios/modelos/usuarios.php');
+require_once('../../Usuarios/modelos/usuarios.php');
+$model =new Usuario();
+$model->validarsesion();
+if(!$_SESSION['validar']){
+    echo"<script>alert('solo usuarios registrados');window.location='../../index.php';</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

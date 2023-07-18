@@ -11,7 +11,7 @@ $admin2 = new Administrador();
 $Nombre = $_POST['txtNombre'];
 $Apellido = $_POST['txtApellido'];
 $Usuario = $_POST['txtUsuario'];
-$Passwor = MD5($_POST['txtContra']);
+$Passwor = $_POST['txtContra'];
 $Perfil = "Administrador";
 $Estado = $_POST['txtEstado'];
 
