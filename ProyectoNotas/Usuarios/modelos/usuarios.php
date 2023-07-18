@@ -1,23 +1,27 @@
 <?php
 include_once('../../conexion.php');
-
+session_start();
 class Usuario extends conexion{
-    public function __construct(){
-    $this->db=parent::__construct();
+
+    private $loggedIn= false;
+    private $isAdmin= false;
+    private $isdocente= false;
+
+public function __construct(){
+    $this->db=parent:: __construct();
 }
 
 public function login($Usuario,$Passwor){
-    $statement= $this->db->prepare("select *from Usuarios where Usuario=:Usuario and Passwor=:Passwor");
-    $statement->bindParam(':Usuario',$Usuario);
-    $statement->bindParam(':Passwor',$Passwor);
-    $statement->execute();
-    if($statement->rowCount()==1){
-        $result=$statement->fetch();
-        $_SESSION['usuario']=$result['Nombre']." ".$result['Apellido'];
-        $_SESSION['id']=$result['id_usuario'];
-        $_SESSION['perfil']=$result['Perfil'];
-        $_SESSION['start']=time();
-        $_SESSION['expire']= $_SESSION['start']+(1*60);
+    $statement= $this->db->prepare("SELECT *from Usuarios where usuario=?");
+    $statement->execute($Usuario);
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+    if($user && password_verify($Passwor, $user['passwor'])){
+        $_SESSION['user_id'] =$user['id_usuario'];
+        $_SESSION['username'] =$user['Usuario'];
+        $_SESSION['role'] =$user['Perfil'];
+        $_SESSION['validar'] =true;
+        $_SESSION['NOMBRE'] =$user['Nombre']." ".$user['Apellido'];
         return true;
     }else{
         return false;
@@ -25,22 +29,32 @@ public function login($Usuario,$Passwor){
 }
 
 public function validarsesion(){
-if($_SESSION['id']==null){
-    echo"<script>alert('datos incorrectos');window.location='../../index.php'</script>";
-}
-$now=time();
-if($now>$_SESSION['expire']){
-    session_destroy();
-    echo"<script>alert('Debe ingresar nuevamente');window.location='../../index.php'</script>";
+if($_SESSION['user_id']){
+    if(!isset($_SESSION['start'])){
+        $_SESSION['start']= time();
+    }else if(time()- $_SESSION['start']>60){
+        session_destroy();
+        echo "<script>alert('Cierre de sesion por inactividad');window.location='../../index.php';</script>";
+        $_SESSION['validar']==false;
+    }
+    $_SESSION['start']=time();
 }
 }
 public function cerrarsesion(){
-session_start();
-session_destroy();
-echo"<script>alert('Confirma el cierre de sesion');window.location='../../index.php'</script>";
+    session_unset();
+    session_destroy();
 }
 public function validarroles(){
 
+}
+public function loggedIn(){
+return isset($SESSION['user_id']);
+}
+public function isAdmin(){
+    return $this->loggedIn() && $_SESSION['role'] ==='Administrador';
+}
+public function isdocente(){
+    return $this->loggedIn() && $_SESSION['role']=== 'Docente';
 }
 }
 ?>

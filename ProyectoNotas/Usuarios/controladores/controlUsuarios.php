@@ -1,18 +1,25 @@
 <?php
-include_once('../../conexion.php');
-include_once('../modelos/Usuarios.php');
+require_once('../../Conexion.php');
+require_once('../modelos/usuarios.php');
 
-if($_POST){
- $Usuario=$_POST['usuario'];
- $Passwor=$_POST['contrasena'];
+if($_SERVER['REQUEST_METHOD']==='POST'){
+    $Usuario=$_POST["usuario"];
+    $Passwor=$_POST["contrasena"];
 
- $modelo= new Usuario();
-if($modelo->login($Usuario,$Passwor)){
-    header('Location:../../Administrador/pages/index.php');
-}else{
-    header('Location:../../index.php');
-}
-}else{
-    echo"<script>alert('datos incorrectos');window.location='../../index.php';</script>";
+    $usu =new Usuario();
+    $usu->login($Usuario,$Passwor);
+
+    //redirigir al controlador de acuerdo al rol
+
+    if($usu->loggedIn()){
+        if($usu->isAdmin()){
+            header('Location:../../Administrador/pages/index.php');
+        }else if($usu->isdocente()){
+            header('Location:../../Docentes/pages/index.php');
+        }
+        exit();
+    }else{
+        echo"<script>alert('datos incorrectos');window.location='../../index.php';</script>";
+    }
 }
 ?>
