@@ -7,13 +7,14 @@ class Administrador extends conexion{
     //funcion para registrar usuarios
     public function addadmi ($Nombre,$Apellido,$Usuario,$Passwor,$Perfil,$Estado)
     {
+        $hashedPassword = password_hash($Passwor, PASSWORD_DEFAULT);
         //crear la sentencia sql
         $statement=$this->db->prepare("insert into Usuarios (Nombre,Apellido,Usuario,Passwor,Perfil,
         Estado)VALUES(:Nombre,:Apellido,:Usuario,:Passwor,:Perfil,:Estado)");
         $statement->bindParam(':Nombre',$Nombre);
         $statement->bindParam(':Apellido',$Apellido);
         $statement->bindParam(':Usuario',$Usuario);
-        $statement->bindParam(':Passwor',$Passwor);
+        $statement->bindParam(':Passwor',$hashedPassword);
         $statement->bindParam(':Perfil',$Perfil);
         $statement->bindParam(':Estado',$Estado);
         if($statement->execute()){

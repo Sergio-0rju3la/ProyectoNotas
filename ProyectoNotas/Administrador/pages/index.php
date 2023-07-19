@@ -30,7 +30,7 @@ if(!$_SESSION['validar']){
         </div>
 
     </nav>
-    <h2 style="color: white;">Bienvenido: <?php echo $_SESSION["usuario"]?></h2>
+    <h2 style="color: white;">Bienvenido: <?php echo $_SESSION["Usuario"]?></h2>
     <!--alerta-->
     <?php
     
