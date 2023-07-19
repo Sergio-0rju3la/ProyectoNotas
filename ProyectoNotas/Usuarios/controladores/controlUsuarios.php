@@ -1,5 +1,5 @@
 <?php
-require_once('../../Conexion.php');
+require_once('../../conexion.php');
 require_once('../modelos/usuarios.php');
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
