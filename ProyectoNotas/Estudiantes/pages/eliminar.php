@@ -1,7 +1,11 @@
 <?php
-
+require_once('../../Usuarios/modelos/usuarios.php');
+$model =new Usuario();
+$model->validarsesion();
+if(!$_SESSION['validar']){
+    echo"<script>alert('solo usuarios registrados');window.location='../../index.php';</script>";
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -29,7 +33,7 @@
 
     </nav>
     <div class="col-12" style="display: grid;
-    justify-content: start; " id="pepo"><h2 style="color: white; " ><?php echo $_SESSION["usuario"]?></h2></div>
+    justify-content: start; " id="pepo"><h2 style="color: white; " ><?php echo $_SESSION["username"]?></h2></div>
     <?php
     
     if(isset($_SESSION['alerta'])){

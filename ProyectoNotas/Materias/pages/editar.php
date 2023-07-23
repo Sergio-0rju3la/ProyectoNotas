@@ -1,3 +1,11 @@
+<?php
+require_once('../../Usuarios/modelos/usuarios.php');
+$model =new Usuario();
+$model->validarsesion();
+if(!$_SESSION['validar']){
+    echo"<script>alert('solo usuarios registrados');window.location='../../index.php';</script>";
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,10 +28,13 @@
 
         </div>
         <div class=" col-6">
-        <input type="button" value="cerrar sesión" class="s btn btn-outline-danger">
-        </div>
+        <a href="../../Usuarios/modelos/salir.php"><input type="button" value="cerrar sesión" class="s btn btn-outline-danger"></a>
+
+    </div>
 
     </nav>
+    <div class="col-12" style="display: grid;
+    justify-content: start; " id="pepo"><h2 style="color: white; " ><?php echo $_SESSION["username"]?></h2></div>
     <div class="caja d-flex flex-column align-items-center justify-content-center">
    
        <?php
